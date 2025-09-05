@@ -1,0 +1,27 @@
+/* 🔹 Ajustar todas las imágenes de las cards */
+.card-img-top {
+    height: 400px;
+    /* mismo alto en todas */
+    object-fit: cover;
+    /* recorta sin deformar */
+}
+
+/* 🔹 Asegurar que todas las cards tengan el mismo alto */
+.card {
+    height: 100%;
+    /* para que ocupen el mismo espacio dentro de la fila */
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-item img{
+    width: 80%;
+    height: 400px;
+    object-fit:cover;
+}
+
+
+.carousel-indicators {
+    bottom: -40px;
+    /* ajusta el valor para bajarlo más o menos */
+}
