@@ -52,68 +52,70 @@
                 <form action="" method="post" class="formulario-fondo p-4 rounded shadow-lg">
                     <h3 style="margin-bottom: 25px; text-align: center;">Registro de usuario</h3>
 
-                    <div class="form-group caja">
+                    <div class="mb-3">
                         <label for="nom" class="form-label etiqueta">Nombre completo: </label>
                         <input type="text" class="form-control" id="nombre" placeholder="Naomi Diaz">
+                        <div id="errorNombre" class="invalid-feedback"></div>
                     </div>
 
-                    <div class="form-group caja">
+                    <div class="mb-3">
                         <label for="correo" class="form-label etiqueta">email: </label>
                         <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" email
                             required>
+                        <div id="errorEmail" class="invalid-feedback"></div>
                     </div>
-
-                    <div class="form-group caja">
-                        <label for="edad" class="form-label etiqueta">Edad: </label>
-                        <input type="number" class="form-control" id="edad" name="edad" placeholder="Ingrese su edad"
-                            min="18" required>
-                    </div>
-
-
-                    <div class="form-group caja">
-                        <label for="comuna" class="etiqueta">Comuna: </label>
-                        <select name="comuna" id="comuna" class="form-select">
-                            <option value="0">Seleccione una comuna..</option>
-                            <option value="1">Maipú</option>
-                            <option value="2">Cerrillos</option>
-                            <option value="3">Padre Hurtado</option>
-                            <option value="4">Otra comuna..</option>
-                        </select>
-                    </div>
-
 
                     <div class="mb-3">
-                        <label for="region" class="form-label">region:</label>
-                        <select id="region" class="form-select">
-                            <option selected disabled>Seleccione una comuna...</option>
-                            <option>Región de Arica y Parinacota</option>
-                            <option>Región de Tarapacá</option>
-                            <option>Región de Antofagasta</option>
-                            <option>Región de Atacama</option>
-                            <option>Región de Coquimbo</option>
-                            <option>Región de Valparaíso</option>
-                            <option>Región Metropolitana de Santiago</option>
-                            <option>Región del Libertador General Bernardo O'Higgins</option>
-                            <option>Región del Maule</option>
-                            <option>Región de Ñuble</option>
-                            <option>Región del Biobío</option>
-                            <option>Región de La Araucanía</option>
-                            <option>Región de Los Ríos</option>
-                            <option>Región de Los Lagos</option>
-                            <option>Región de Aysén del General Ibáñez del Campo</option>
-                            <option>Región de Magallanes y de la Antártica Chilena</option>
-                        </select>
+                        <label for="correo" class="form-label etiqueta">Confirmar email: </label>
+                        <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" email
+                            required>
+                        <div id="errorEmail" class="invalid-feedback"></div>
                     </div>
-
-                    <div class="form-group caja">
-                        <label for="pass" class="form-label etiqueta">Contraseña: </label>
-                        <input type="password" id="pass" class="form-control"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="***********">
-                        <div class="form-text text-light">Debe tener al menos 8 caracteres, una mayúscula y un número.
+                    
+                    <div class="mb-3">
+                        <label for="contra" class="form-label etiqueta">Contraseña: </label>
+                        <input type="password" class="form-control" id="password" placeholder="Crear contraseña" required>
+                        <div class="form-text">La contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una
+                            minúscula y un número.
                         </div>
-
-
+                        <div id="errorPassword" class="invalid-feedback"></div>  
                     </div>
+
+                    <div class="mb-3">
+                        <label for="contra" class="form-label etiqueta">Confirmar contraseña: </label>
+                        <input type="password" class="form-control" id="password" placeholder="Crear contraseña" required>
+                        <div id="errorPassword" class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="mb-3">  
+                        <label for="tel" class="form-label etiqueta">Teléfono: </label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="123-456-7890" required>
+                        <div id="errorTelefono" class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="region" class="form-label etiqueta">Región: </label>
+                        <select class="form-select" id="selRegion" required></select>
+                        <div id="errorRegion" class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="comuna" class="form-label etiqueta">Comuna: </label>
+                        <select class="form-select" id="selComuna" required></select>
+                        <div id="errorComuna" class="invalid-feedback"></div>
+                    </div>
+
+                    
+
+                    
+
+
+                    
+
+
+                    
+
+                    
 
                     <div class="form-check caja">
                         <input type="checkbox" class="form-check-input" id="acepta" value="si">
