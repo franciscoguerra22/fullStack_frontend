@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/Diseñocss.css">
 
 </head>
+
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -29,8 +31,10 @@
                             <a class="nav-link" href="RegistrarUsuario.html">Registrar usuario</a>
                         </li>
                         <li class="nav-item">
-                             <a class="nav-link" href="carrito.html">
+                            <a class="nav-link" href="carrito.html">
                                 <img src="img/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
+                                <label id="cart-count" class="badge rounded-pill bg-danger"
+                                    style="position: relative; top: -10px; left: -10px;">0</label>
                             </a>
                         </li>
                         </li>
@@ -38,11 +42,11 @@
                 </div>
             </div>
     </div>
-        
+
     <div class="container mt-5">
         <div class="card bg-dark text-white">
             <img id="service-image" class="card-img-top" src="img/ilustracion_full.JPG" alt="full">
-                <div class="card-body">
+            <div class="card-body">
                 <h1 id="service-title" class="card-title"></h1>
                 <p id="service-description" class="card-text"></p>
                 <p id="service-price" class="card-text fw-bold fs-4"></p>
@@ -51,38 +55,38 @@
         </div>
 
         <div class="col">
-                        <div class="card bg-dark text-white">
-                            <img src="img/ilustracion_full.JPG" class="card-img-top" alt="Ilustración 8">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Personaje y fondo Full detallados</h5>
-                                <h1 id="service-title" class="card-title"></h1>
-                                <p id="service-description" class="card-text"></p>
-                                <p id="service-price" class="card-text fw-bold fs-4"></p>
-                                <p class="card-text">Nombre del servicio: Ilustración de personaje con fondo completamente detallado
-                                    Tipo de arte: Ilustración digital en color, estilo realista-fantástico
-                                    Resolución estándar: 300 DPI (ideal para impresión de alta calidad y medios digitales)
-                                    Formatos de entrega: PNG, JPG, PSD (por capas si se requiere edición o animación)
-                                    Dimensiones sugeridas:
-                                    - Web: 1920x1080 px (horizontal)
-                                    - Impresión: A4 / A3 / formato póster según requerimiento
-                                    Tiempo estimado de entrega: 5 a 10 días hábiles (dependiendo del nivel de detalle y revisiones)
+            <div class="card bg-dark text-white">
+                <img src="img/ilustracion_full.JPG" class="card-img-top" alt="Ilustración 8">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Personaje y fondo Full detallados</h5>
+                    <h1 id="service-title" class="card-title"></h1>
+                    <p id="service-description" class="card-text"></p>
+                    <p id="service-price" class="card-text fw-bold fs-4"></p>
+                    <p class="card-text">Nombre del servicio: Ilustración de personaje con fondo completamente detallado
+                        Tipo de arte: Ilustración digital en color, estilo realista-fantástico
+                        Resolución estándar: 300 DPI (ideal para impresión de alta calidad y medios digitales)
+                        Formatos de entrega: PNG, JPG, PSD (por capas si se requiere edición o animación)
+                        Dimensiones sugeridas:
+                        - Web: 1920x1080 px (horizontal)
+                        - Impresión: A4 / A3 / formato póster según requerimiento
+                        Tiempo estimado de entrega: 5 a 10 días hábiles (dependiendo del nivel de detalle y revisiones)
 
-                                </p>
-                                <p>$200.000</p>
-                                <a href="Carrito.html" class="btn btn-outline-success btn-sm">Comprar</a>
-                                <a href="detalleServicio.html?id=1" class="btn btn-outline-success btn-sm">Ver detalle</a>
-                                <a href="paginaInicio.html" class="btn btn-outline-success">Volver al inicio</a>
-                            </div>
-                        </div>
-                    </div>
+                    </p>
+                    <p>$200.000</p>
+                    <a href="Carrito.html" class="btn btn-outline-success btn-sm">Comprar</a>
+                    <a href="detalleServicio.html?id=1" class="btn btn-outline-success btn-sm">Ver detalle</a>
+                    <a href="paginaInicio.html" class="btn btn-outline-success">Volver al inicio</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Aquí irá el script para cargar los datos
-    </script>
+    <script src="js/carrito.js"></script>
+    <script src="js/Servicios.js"></script>
 
 
-        
+
 </body>
+
 </html>

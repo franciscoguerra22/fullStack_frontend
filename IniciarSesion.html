@@ -15,7 +15,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="#">ArteDigital</a>
+                <a class="navbar-brand" href="paginaInicio.html">Volver</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menucollapse">
                     <img src="img/barra-de-menus.png" alt="Menu" style="width: 30px; height: 30px;">
                 </button>
@@ -32,7 +32,11 @@
                             <a class="nav-link" href="RegistrarUsuario.html">Registrar usuario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="carrito.html">Carrito</a>
+                            <a class="nav-link" href="carrito.html">
+                                <img src="img/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
+                                <label id="cart-count" class="badge rounded-pill bg-danger"
+                                    style="position: relative; top: -10px; left: -10px;">0</label>
+                            </a>
                         </li>
                         </li>
                     </ul>
@@ -72,7 +76,8 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        
+            <script src="js/carrito.js"></script>
+            <script src="js/Servicios.js"></script>
 </body>
 
 </html>

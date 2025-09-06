@@ -33,8 +33,10 @@
                             <a class="nav-link" href="RegistrarUsuario.html">Registrar usuario</a>
                         </li>
                         <li class="nav-item">
-                             <a class="nav-link" href="carrito.html">
+                            <a class="nav-link" href="carrito.html">
                                 <img src="img/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
+                                <label id="cart-count" class="badge rounded-pill bg-danger"
+                                    style="position: relative; top: -10px; left: -10px;">0</label>
                             </a>
                         </li>
                         </li>
@@ -64,6 +66,7 @@
                         <label for="correo" class="form-label etiqueta">email: </label>
                         <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" email
                             required>
+                            
                         <div id="errorEmail" class="invalid-feedback"></div>
                     </div>
 

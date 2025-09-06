@@ -122,9 +122,9 @@ function poblarRegiones(regionSelectId, comunaSelectId) {
 
 
 
-/**
- * Función para generar dinámicamente las tarjetas de servicio.
- */
+
+ //Función para generar dinámicamente las tarjetas de servicio.
+
 function generarTarjetasServicios() {
     const container = document.getElementById('servicios-container');
     let htmlContent = '';
@@ -136,21 +136,24 @@ function generarTarjetasServicios() {
                     <img src="${servicio.image}" class="card-img-top" alt="${servicio.title}">
                     <div class="card-body text-center">
                         <h5 class="card-title">${servicio.title}</h5>
-                        <!--<p class="card-text">${servicio.description}</p>--!>
                         <p>${servicio.price}</p>
-                       
+                        
+                        <button class="btn btn-primary btn-sm me-2" onclick='addItem(${JSON.stringify(servicio)})'>
+                            <i class="bi bi-cart-plus"></i> Agregar al Carrito
+                        </button>
+                        
                         <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
                             data-bs-target="#serviceDetailModal"
                             data-title="${servicio.title}"
                             data-image="${servicio.image}"
                             data-description="${servicio.description}"
-                            data-price="${servicio.price}">Ver detalle</button>
+                            data-price="${servicio.price}"
+                            data-id="${servicio.id}">Ver detalle</button>
                     </div>
                 </div>
             </div>
         `;
     });
-
     container.innerHTML = htmlContent;
 }
 
@@ -323,85 +326,50 @@ window.onload = function () {
 
 };
 
-// ---------------- REGISTRO ----------------
-    const formRegistro = document.getElementById("formRegistro");
-    if (formRegistro) {
+document.addEventListener('DOMContentLoaded', () => {
+  const serviceDetailModal = document.getElementById('serviceDetailModal');
+  const btnAddFromModal = document.getElementById('btnAddFromModal');
+  let servicioSeleccionado = null;
 
-        const emailRegistro = document.getElementById("emailRegistro");
-        const passRegistro = document.getElementById("passRegistro");
-        const edad = document.getElementById("edad");
-        const mensajeCorreoReg = document.getElementById("mensajeCorreoReg");
-        const mensajePassReg = document.getElementById("mensajePassReg");
-        const mensajeEdad = document.getElementById("mensajeEdad");
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const regexPass = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+  if (!serviceDetailModal) {
+    console.error("No se encontró el modal con id 'serviceDetailModal'");
+    return;
+  }
 
-        // Email en vivo
-        emailRegistro.addEventListener("input", function () {
-            const email = emailRegistro.value.trim();
-            if (email === "") {
-                mensajeCorreoReg.textContent = "El correo no puede estar vacío.";
-                mensajeCorreoReg.className = "text-danger";
-            } else if (!regexEmail.test(email)) {
-                mensajeCorreoReg.textContent = "Formato de correo inválido.";
-                mensajeCorreoReg.className = "text-danger";
-            } else {
-                mensajeCorreoReg.textContent = "Correo válido ✔️";
-                mensajeCorreoReg.className = "text-success";
-            }
-        });
+  serviceDetailModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget; 
+    if (!button) return;
 
-        // Contraseña en vivo
-        passRegistro.addEventListener("input", function () {
-            const pass = passRegistro.value.trim();
-            if (pass === "") {
-                mensajePassReg.textContent = "La contraseña no puede estar vacía.";
-                mensajePassReg.className = "text-danger";
-            } else if (!regexPass.test(pass)) {
-                mensajePassReg.textContent = "Debe tener al menos 8 caracteres, una mayúscula y un número.";
-                mensajePassReg.className = "text-danger";
-            } else {
-                mensajePassReg.textContent = "Contraseña válida ✔️";
-                mensajePassReg.className = "text-success";
-            }
-        });
+    
+    const { title, image, description, price, id } = button.dataset;
 
-        // Edad en vivo
-        edad.addEventListener("input", function () {
-            const val = parseInt(edad.value.trim());
-            if (isNaN(val)) {
-                mensajeEdad.textContent = "Debe ingresar su edad.";
-                mensajeEdad.className = "text-danger";
-            } else if (val < 18) {
-                mensajeEdad.textContent = "Debe ser mayor de 18 años.";
-                mensajeEdad.className = "text-danger";
-            } else {
-                mensajeEdad.textContent = "Edad válida ✔️";
-                mensajeEdad.className = "text-success";
-            }
-        });
+   
+    servicioSeleccionado = { id, title, image, description, price };
 
-        // Validación final al enviar
-        formRegistro.addEventListener("submit", function (event) {
-            let mensajeError = "";
-            const nombre = document.getElementById('nombre').value.trim();
-            const email = emailRegistro.value.trim();
-            const pass = passRegistro.value.trim();
-            const edadVal = parseInt(edad.value.trim());
+    
+    serviceDetailModal.querySelector('.modal-title').textContent = title;
+    serviceDetailModal.querySelector('#modalImage').src = image;
+    serviceDetailModal.querySelector('#modalDescription').textContent = description;
+    serviceDetailModal.querySelector('#modalPrice').textContent = price;
+  });
 
-            if (nombre === '') mensajeError += "<li>El nombre no puede quedar vacío</li>";
-            if (email === '') mensajeError += "<li>El correo no puede quedar vacío</li>";
-            else if (!regexEmail.test(email)) mensajeError += "<li>El correo debe ser válido</li>";
-            if (isNaN(edadVal)) mensajeError += "<li>Debe ingresar su edad</li>";
-            else if (edadVal < 18) mensajeError += "<li>Debe ser mayor de 18 años</li>";
-            if (pass === '') mensajeError += "<li>La contraseña no puede quedar vacía</li>";
-            else if (!regexPass.test(pass)) mensajeError += "<li>La contraseña debe tener al menos 8 caracteres, una mayúscula y un número</li>";
+  if (btnAddFromModal) {
+    btnAddFromModal.addEventListener('click', () => {
+      if (servicioSeleccionado) {
+        addItem(servicioSeleccionado);
 
-            if (mensajeError !== "") {
-                document.getElementById('errores').innerHTML = "<ul>" + mensajeError + "</ul>";
-                event.preventDefault();
-            } else {
-                document.getElementById('errores').innerHTML = '';
-            }
-        });
-    }
+        
+        const modalInstance = bootstrap.Modal.getInstance(serviceDetailModal);
+        if (modalInstance) modalInstance.hide();
+      } else {
+        console.warn(' No hay servicio seleccionado para agregar.');
+      }
+    });
+  }
+});
+
+
+
+    
+
+    
