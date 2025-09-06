@@ -61,54 +61,64 @@ const servicios = [
 ];
 
 const regionesComunas = [
-    { region: "Región de Arica y Parinacota", comunas: ["Arica", "Camarones", "Putre", "General Lagos"] },
-    { region: "Región de Tarapacá", comunas: ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"] },
-    { region: "Región de Antofagasta", comunas: ["Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena"] },
-    { region: "Región de Atacama", comunas: ["Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco"] },
-    { region: "Región de Coquimbo", comunas: ["La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado"] },
-    { region: "Región de Valparaíso", comunas: ["Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María"] },
-    { region: "Región Metropolitana de Santiago", comunas: ["Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Santiago", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "Tiltil"] },
-    { region: "Región del Libertador General Bernardo O'Higgins", comunas: ["Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente de Tagua Tagua", "La Estrella", "Litueche", "Marchihue", "Navidad", "Paredones", "Pichilemu"] },
-    { region: "Región del Maule", comunas: ["Talca", "Constitución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén"] },
-    { region: "Región de Ñuble", comunas: ["Chillán", "Bulnes", "Cobquecura", "Coelemu", "Coihueco", "El Carmen", "Ninhue", "Ñiquén", "Pemuco", "Pinto", "Portezuelo", "Quillón", "Quirihue", "Ránquil", "San Carlos", "San Fabián", "San Ignacio", "San Nicolás", "Treguaco"] },
-    { region: "Región del Biobío", comunas: ["Concepción", "Coronel", "Chiguayante", "Florida", "Hualpén", "Hualqui", "Lota", "Penco", "San Pedro de la Paz", "Santa Juana", "Talcahuano", "Tomé", "Arauco", "Cañete", "Contulmo", "    Curanilahue", "Lebu", "Los Álamos", "Tirúa", "Los Ángeles", "Antuco", "Cabrero", "Laja", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel"] },
-    { region: "Región de La Araucanía", comunas: ["Temuco", "Carahue", "Cholchol", "Cunco", "Curarrehue", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Melipeuco", "Nueva Imperial", "Padre Las Casas", "Perquenco", "Pitrufquén", "Pucón", "Saavedra", "Teodoro Schmidt", "Toltén", "Vilcún", "Villarrica", "Angol", "Collipulli", "Curacautín", "Ercilla", "Lonquimay", "Los Sauces", "Lumaco", "Purén"] },
-    { region: "Región de Los Ríos", comunas: ["Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "Futrono", "La Unión", "Lago Ranco", "Río Bueno"] },         
-    { region: "Región de Los Lagos", comunas: ["Puerto Montt", "Calbuco", "Cochamó", "Fresia", "Frutillar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue"]},
-    { region: "Región de Aysén del General Carlos Ibáñez del Campo", comunas: ["Coyhaique", "Lago Verde", "Aysén", "Cisnes", "Guaitecas", "Chile Chico", "Río Ibáñez", "Cochrane", "O'Higgins", "Tortel"] },
-    { region: "Región de Magallanes y de la Antártica Chilena", comunas: ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos", "Antártica", "Porvenir", "Primavera", "Timaukel"] },
-]
+  { region: "Región de Arica y Parinacota", comunas: ["Arica", "Camarones", "Putre", "General Lagos"] },
+  { region: "Región de Tarapacá", comunas: ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"] },
+  { region: "Región de Antofagasta", comunas: ["Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena"] },
+  { region: "Región de Atacama", comunas: ["Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco"] },
+  { region: "Región de Coquimbo", comunas: ["La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado"] },
+  { region: "Región de Valparaíso", comunas: ["Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María"] },
+  { region: "Región Metropolitana de Santiago", comunas: ["Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Santiago", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "Tiltil"] },
+  { region: "Región del Libertador General Bernardo O'Higgins", comunas: ["Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente de Tagua Tagua", "La Estrella", "Litueche", "Marchihue", "Navidad", "Paredones", "Pichilemu"] },
+  { region: "Región del Maule", comunas: ["Talca", "Constitución", "Curepto", "Empedrado", "Maule", "Pelarco", "Pencahue", "Río Claro", "San Clemente", "San Rafael", "Cauquenes", "Chanco", "Pelluhue", "Curicó", "Hualañé", "Licantén", "Molina", "Rauco", "Romeral", "Sagrada Familia", "Teno", "Vichuquén"] },
+  { region: "Región de Ñuble", comunas: ["Chillán", "Bulnes", "Cobquecura", "Coelemu", "Coihueco", "El Carmen", "Ninhue", "Ñiquén", "Pemuco", "Pinto", "Portezuelo", "Quillón", "Quirihue", "Ránquil", "San Carlos", "San Fabián", "San Ignacio", "San Nicolás", "Treguaco"] },
+  { region: "Región del Biobío", comunas: ["Concepción", "Coronel", "Chiguayante", "Florida", "Hualpén", "Hualqui", "Lota", "Penco", "San Pedro de la Paz", "Santa Juana", "Talcahuano", "Tomé", "Arauco", "Cañete", "Contulmo", "Curanilahue", "Lebu", "Los Álamos", "Tirúa", "Los Ángeles", "Antuco", "Cabrero", "Laja", "Mulchén", "Nacimiento", "Negrete", "Quilaco", "Quilleco", "San Rosendo", "Santa Bárbara", "Tucapel", "Yumbel"].map(s => s.trim()) },
+  { region: "Región de La Araucanía", comunas: ["Temuco", "Carahue", "Cholchol", "Cunco", "Curarrehue", "Freire", "Galvarino", "Gorbea", "Lautaro", "Loncoche", "Melipeuco", "Nueva Imperial", "Padre Las Casas", "Perquenco", "Pitrufquén", "Pucón", "Saavedra", "Teodoro Schmidt", "Toltén", "Vilcún", "Villarrica", "Angol", "Collipulli", "Curacautín", "Ercilla", "Lonquimay", "Los Sauces", "Lumaco", "Purén"] },
+  { region: "Región de Los Ríos", comunas: ["Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "Futrono", "La Unión", "Lago Ranco", "Río Bueno"] },         
+  { region: "Región de Los Lagos", comunas: ["Puerto Montt", "Calbuco", "Cochamó", "Fresia", "Frutillar", "Los Muermos", "Llanquihue", "Maullín", "Puerto Varas", "Castro", "Ancud", "Chonchi", "Curaco de Vélez", "Dalcahue", "Puqueldón", "Queilén", "Quellón", "Quemchi", "Quinchao", "Osorno", "Puerto Octay", "Purranque", "Puyehue"]},
+  { region: "Región de Aysén del General Carlos Ibáñez del Campo", comunas: ["Coyhaique", "Lago Verde", "Aysén", "Cisnes", "Guaitecas", "Chile Chico", "Río Ibáñez", "Cochrane", "O'Higgins", "Tortel"] },
+  { region: "Región de Magallanes y de la Antártica Chilena", comunas: ["Punta Arenas", "Laguna Blanca", "Río Verde", "San Gregorio", "Cabo de Hornos", "Antártica", "Porvenir", "Primavera", "Timaukel"] },
+];
 
-function poblarRegiones(regionSelectId,comunaSelectId) {
-    const selRegion = document.getElementById(regionSelectId); 
-    const selComuna = document.getElementById(comunaSelectId);
-    if (!selRegion || !selComuna) return;
 
-    selRegion.innerHTML = '<option value="">Seleccione una región</option>' ;
-    Object.keys(regionesComunas).forEach(region => {
-        const option = document.createElement("option");
-        option.value = region;
-        option.textContent = region;
-        selRegion.appendChild(option);
+const mapaRegiones = Object.fromEntries(
+  regionesComunas.map(r => [r.region, r.comunas])
+);
+
+function poblarRegiones(regionSelectId, comunaSelectId) {
+  const selRegion = document.getElementById(regionSelectId);
+  const selComuna = document.getElementById(comunaSelectId);
+  if (!selRegion || !selComuna) return;
+
+
+  selRegion.innerHTML = '<option value="">Seleccione una región</option>';
+  selComuna.innerHTML = '<option value="">Seleccione una comuna</option>';
+  selComuna.disabled = true;
+
+ 
+  Object.keys(mapaRegiones).forEach(nombre => {
+    const option = document.createElement('option');
+    option.value = nombre;           
+    option.textContent = nombre;
+    selRegion.appendChild(option);
+  });
+
+ 
+  selRegion.addEventListener('change', () => {
+    const nombre = selRegion.value;
+    selComuna.innerHTML = '<option value="">Seleccione una comuna</option>';
+    selComuna.disabled = true;
+
+    const comunas = mapaRegiones[nombre] || [];
+    comunas.forEach(c => {
+      const option = document.createElement('option');
+      option.value = c;
+      option.textContent = c;
+      selComuna.appendChild(option);
     });
 
-    selRegion.addEventListener("change", () => {
-        const region = selRegion.value;
-        selComuna.innerHTML = '<option value="">Seleccione una comuna</option>';
-        selComuna.disabled = true;
-
-        if(region && regionesComunas[region]) {
-            regionesComunas[region].forEach(comuna => {
-                const option = document.createElement("option");
-                option.value = comuna;
-                option.textContent = comuna;
-                selComuna.appendChild(option);
-            });
-            selComuna.disabled = false;
-        }
-    });
+    selComuna.disabled = comunas.length === 0;
+  });
 }
-
 
 
 
@@ -242,9 +252,9 @@ function registroValidado(formId) {
   });
 }
 
-function mailValido(mail) {
+function mailValido(email) {
     const re = /^[^\s@]+@[^\s@]+\.(com|cl)$/;
-    return re.test(mail);
+    return re.test(email);
 }
 
 function passwordValida(password) {
@@ -256,5 +266,142 @@ function telefonoValido(telefono) {
     return re.test(telefono);
 }
 
+window.onload = function () {
+// ---------------- LOGIN ----------------
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+        const loginEmail = document.getElementById("email");
+        const loginPass = document.getElementById("pass");
+        const mensajeCorreoLogin = document.getElementById("mensajeCorreo");
+        const mensajePassLogin = document.getElementById("mensajePass");
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+        // Email en vivo
+        loginEmail.addEventListener("input", function () {
+            const email = loginEmail.value.trim();
+            if (email === "") {
+                mensajeCorreoLogin.textContent = "El correo no puede estar vacío.";
+                mensajeCorreoLogin.className = "text-danger";
+            } else if (!regexEmail.test(email)) {
+                mensajeCorreoLogin.textContent = "Formato de correo inválido.";
+                mensajeCorreoLogin.className = "text-danger";
+            } else {
+                mensajeCorreoLogin.textContent = "Correo válido ✔️";
+                mensajeCorreoLogin.className = "text-success";
+            }
+        });
 
+        // Contraseña en vivo
+        loginPass.addEventListener("input", function () {
+            const pass = loginPass.value.trim();
+            if (pass === "") {
+                mensajePassLogin.textContent = "La contraseña no puede estar vacía.";
+                mensajePassLogin.className = "text-danger";
+            } else {
+                mensajePassLogin.textContent = "";
+            }
+        });
+
+        // Validación final al enviar
+        loginForm.addEventListener("submit", function (event) {
+            let mensajeError = "";
+            const email = loginEmail.value.trim();
+            const pass = loginPass.value.trim();
+
+            if (email === '') mensajeError += "<li>El correo no puede quedar vacío</li>";
+            else if (!regexEmail.test(email)) mensajeError += "<li>El correo debe ser válido</li>";
+            if (pass === '') mensajeError += "<li>La contraseña no puede quedar vacía</li>";
+
+            if (mensajeError !== "") {
+                document.getElementById('errores').innerHTML = "<ul>" + mensajeError + "</ul>";
+                event.preventDefault();
+            } else {
+                document.getElementById('errores').innerHTML = '';
+            }
+        });
+    }
+
+};
+
+// ---------------- REGISTRO ----------------
+    const formRegistro = document.getElementById("formRegistro");
+    if (formRegistro) {
+
+        const emailRegistro = document.getElementById("emailRegistro");
+        const passRegistro = document.getElementById("passRegistro");
+        const edad = document.getElementById("edad");
+        const mensajeCorreoReg = document.getElementById("mensajeCorreoReg");
+        const mensajePassReg = document.getElementById("mensajePassReg");
+        const mensajeEdad = document.getElementById("mensajeEdad");
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const regexPass = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+        // Email en vivo
+        emailRegistro.addEventListener("input", function () {
+            const email = emailRegistro.value.trim();
+            if (email === "") {
+                mensajeCorreoReg.textContent = "El correo no puede estar vacío.";
+                mensajeCorreoReg.className = "text-danger";
+            } else if (!regexEmail.test(email)) {
+                mensajeCorreoReg.textContent = "Formato de correo inválido.";
+                mensajeCorreoReg.className = "text-danger";
+            } else {
+                mensajeCorreoReg.textContent = "Correo válido ✔️";
+                mensajeCorreoReg.className = "text-success";
+            }
+        });
+
+        // Contraseña en vivo
+        passRegistro.addEventListener("input", function () {
+            const pass = passRegistro.value.trim();
+            if (pass === "") {
+                mensajePassReg.textContent = "La contraseña no puede estar vacía.";
+                mensajePassReg.className = "text-danger";
+            } else if (!regexPass.test(pass)) {
+                mensajePassReg.textContent = "Debe tener al menos 8 caracteres, una mayúscula y un número.";
+                mensajePassReg.className = "text-danger";
+            } else {
+                mensajePassReg.textContent = "Contraseña válida ✔️";
+                mensajePassReg.className = "text-success";
+            }
+        });
+
+        // Edad en vivo
+        edad.addEventListener("input", function () {
+            const val = parseInt(edad.value.trim());
+            if (isNaN(val)) {
+                mensajeEdad.textContent = "Debe ingresar su edad.";
+                mensajeEdad.className = "text-danger";
+            } else if (val < 18) {
+                mensajeEdad.textContent = "Debe ser mayor de 18 años.";
+                mensajeEdad.className = "text-danger";
+            } else {
+                mensajeEdad.textContent = "Edad válida ✔️";
+                mensajeEdad.className = "text-success";
+            }
+        });
+
+        // Validación final al enviar
+        formRegistro.addEventListener("submit", function (event) {
+            let mensajeError = "";
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = emailRegistro.value.trim();
+            const pass = passRegistro.value.trim();
+            const edadVal = parseInt(edad.value.trim());
+
+            if (nombre === '') mensajeError += "<li>El nombre no puede quedar vacío</li>";
+            if (email === '') mensajeError += "<li>El correo no puede quedar vacío</li>";
+            else if (!regexEmail.test(email)) mensajeError += "<li>El correo debe ser válido</li>";
+            if (isNaN(edadVal)) mensajeError += "<li>Debe ingresar su edad</li>";
+            else if (edadVal < 18) mensajeError += "<li>Debe ser mayor de 18 años</li>";
+            if (pass === '') mensajeError += "<li>La contraseña no puede quedar vacía</li>";
+            else if (!regexPass.test(pass)) mensajeError += "<li>La contraseña debe tener al menos 8 caracteres, una mayúscula y un número</li>";
+
+            if (mensajeError !== "") {
+                document.getElementById('errores').innerHTML = "<ul>" + mensajeError + "</ul>";
+                event.preventDefault();
+            } else {
+                document.getElementById('errores').innerHTML = '';
+            }
+        });
+    }
