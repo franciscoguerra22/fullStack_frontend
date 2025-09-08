@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="col-md-4">
-                    
+
                     <form id="loginForm" class="formulario-fondo p-4 rounded shadow-lg">
                         <h3>Iniciar sesión</h3>
                         <div class="form-group">
@@ -76,8 +76,100 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="js/carrito.js"></script>
-            <script src="js/Servicios.js"></script>
+        <script src="js/carrito.js"></script>
+        <script src="js/Servicios.js"></script>
+        <script>
+            // Funciones de validación
+            function mailValido(email) {
+                const re = /^[^\s@]+@[^\s@]+\.(com|cl)$/;
+                return re.test(email);
+            }
+
+            function passwordValida(password) {
+                const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+                return re.test(password);
+            }
+
+            // Captura el formulario
+            document.getElementById("loginForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const email = document.getElementById("email").value.trim();
+                const pass = document.getElementById("pass").value.trim();
+
+                // Validación básica de formato
+                if (!mailValido(email)) {
+                    alert("⚠️ Ingresa un correo válido (.com o .cl)");
+                    return;
+                }
+                if (!passwordValida(pass)) {
+                    alert("⚠️ La contraseña debe tener al menos 8 caracteres, mayúscula, minúscula y número.");
+                    return;
+                }
+
+                // Recuperar usuarios registrados (simulación con localStorage)
+                let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+                // Buscar si existe el usuario
+                const usuario = usuarios.find(u => u.correo === email && u.contra === pass);
+
+                if (!usuario) {
+                    alert("❌ Usuario no registrado o contraseña incorrecta.");
+                } else {
+                    alert(`✅ Bienvenido ${usuario.nombre}, has iniciado sesión correctamente.`);
+                    // Redirigir si quieres:
+                    // window.location.href = "paginaInicio.html";
+                }
+            });
+        </script>
+        <script>
+            function mailValido(email) {
+                const re = /^[^\s@]+@[^\s@]+\.(com|cl)$/;
+                return re.test(email);
+            }
+            function passwordValida(password) {
+                const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+                return re.test(password);
+            }
+
+            document.getElementById("loginForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const email = document.getElementById("email").value.trim();
+                const pass = document.getElementById("pass").value;
+
+                if (!mailValido(email)) { alert("⚠️ Correo inválido (.com o .cl)"); return; }
+                if (!passwordValida(pass)) { alert("⚠️ Contraseña débil"); return; }
+
+                const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+                // Buscamos por correo (o email) ignorando mayúsculas
+                const usuario = usuarios.find(u => ((u.correo || u.email || "").toLowerCase() === email.toLowerCase()));
+
+                if (!usuario) {
+                    alert("❌ Usuario no registrado.");
+                    return;
+                }
+
+                // Aceptamos 'contra' o 'password' por compatibilidad
+                const storedPass = (usuario.contra ?? usuario.password ?? "");
+                if (storedPass !== pass) {
+                    alert("❌ Contraseña incorrecta.");
+                    return;
+                }
+
+                // Guardar sesión "simple"
+                localStorage.setItem("usuarioActual", JSON.stringify({
+                    nombre: usuario.nombre,
+                    correo: usuario.correo || usuario.email,
+                    permiso: usuario.permiso ?? 1
+                }));
+
+                alert(`✅ Bienvenido, ${usuario.nombre}. Has iniciado sesión correctamente.`);
+                window.location.href = "paginaInicio.html";
+            });
+        </script>
+
 </body>
 
 </html>

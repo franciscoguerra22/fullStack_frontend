@@ -209,53 +209,44 @@ function registroValidado(formId) {
   const form = document.getElementById(formId);
   if (!form) return;
 
-  ["nombre","correo","correoconfir","contra","contraconfi","telefono","region","comuna"]
-    .forEach(bindLiveClear);
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const nombre = document.getElementById("nombre")?.value?.trim() || "";
-    const email = document.getElementById("correo")?.value?.trim() || "";
-    const confirmEmail = document.getElementById("correoconfir")?.value?.trim() || "";
-    const password = document.getElementById("contra")?.value || "";
-    const confirmPassword = document.getElementById("contraconfi")?.value || "";
-    const telefono = document.getElementById("telefono")?.value?.trim() || "";
-    const region = document.getElementById("region")?.value || "";
-    const comuna = document.getElementById("comuna")?.value || "";
+    const nombre        = document.getElementById("nombre")?.value?.trim() || "";
+    const correo        = document.getElementById("correo")?.value?.trim() || "";
+    const correoconfir  = document.getElementById("correoconfir")?.value?.trim() || "";
+    const contra        = document.getElementById("contra")?.value || "";
+    const contraconfi   = document.getElementById("contraconfi")?.value || "";
+    const telefono      = document.getElementById("telefono")?.value?.trim() || "";
+    const region        = document.getElementById("selRegion")?.value || "";
+    const comuna        = document.getElementById("selComuna")?.value || "";
 
-    ["nombre","correo","correoconfir","contra","contraconfi","telefono","region","comuna"]
-      .forEach(clearError);
-
-    let ok = true;
-
-    if (nombre.length < 2) { setError("nombre","El nombre debe tener al menos 2 caracteres."); ok = false; }
-    if (!esEmailValido(email)) { setError("correo","Correo inválido. Debe contener @ y terminar en .com o .cl."); ok = false; }
-    if (email !== confirmEmail) { setError("correoconfir","Los correos no coinciden."); ok = false; }
-    if (!esPasswordValida(password)) { setError("contra","Mínimo 8 caracteres, con mayúscula, minúscula y número."); ok = false; }
-    if (password !== confirmPassword) { setError("contraconfi","Las contraseñas no coinciden."); ok = false; }
-    if (telefono && !esTelefonoValido(telefono)) { setError("telefono","El teléfono debe tener entre 9 y 11 dígitos."); ok = false; }
-    if (!region) { setError("region","Selecciona una región."); ok = false; }
-    if (!comuna) { setError("comuna","Selecciona una comuna."); ok = false; }
+    // Validaciones mínimas (usa tus setError/clearError si las tienes)
+    if (nombre.length < 2)        { alert("Nombre muy corto"); return; }
+    if (!mailValido(correo))      { alert("Correo inválido (.com o .cl)"); return; }
+    if (correo !== correoconfir)  { alert("Los correos no coinciden"); return; }
+    if (!passwordValida(contra))  { alert("Contraseña débil"); return; }
+    if (contra !== contraconfi)   { alert("Las contraseñas no coinciden"); return; }
+    if (telefono && !telefonoValido(telefono)) { alert("Teléfono inválido"); return; }
+    if (!region)                  { alert("Selecciona una región"); return; }
+    if (!comuna)                  { alert("Selecciona una comuna"); return; }
 
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-    const existe = usuarios.some(u => (u.email || "").toLowerCase() === email.toLowerCase());
-    if (existe) { setError("correo","Este correo ya está registrado."); ok = false; }
+    const existe = usuarios.some(u => (u.correo || u.email || "").toLowerCase() === correo.toLowerCase());
+    if (existe) { alert("Ese correo ya está registrado"); return; }
 
-    if (!ok) return;
-
-    usuarios.push({ nombre, email, password, telefono, region, comuna, permiso: 1 });
+    // 🔴 Guardamos SIEMPRE con las mismas claves: correo, contra
+    usuarios.push({ nombre, correo, contra, telefono, region, comuna, permiso: 1 });
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    alert("Usuario registrado correctamente.");
+    alert("✅ Usuario registrado correctamente");
     form.reset();
-    const selComuna = document.getElementById("comuna");
-    if (selComuna) selComuna.disabled = true;
-    
-    // Redirigir a página de inicio
-    window.location.href = "paginaInicio.html";
-  }); // <-- Cierra el addEventListener
-} // <-- Cierra la función registroValidado
+    document.getElementById("selComuna").disabled = true;
+
+    window.location.href = "IniciarSesion.html";
+  });
+}
+
 
 function mailValido(email) {
     const re = /^[^\s@]+@[^\s@]+\.(com|cl)$/;
@@ -271,62 +262,7 @@ function telefonoValido(telefono) {
     return re.test(telefono);
 }
 
-window.onload = function () {
-// ---------------- LOGIN ----------------
-    const loginForm = document.getElementById("loginForm");
-    if (loginForm) {
-        const loginEmail = document.getElementById("email");
-        const loginPass = document.getElementById("pass");
-        const mensajeCorreoLogin = document.getElementById("mensajeCorreo");
-        const mensajePassLogin = document.getElementById("mensajePass");
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // Email en vivo
-        loginEmail.addEventListener("input", function () {
-            const email = loginEmail.value.trim();
-            if (email === "") {
-                mensajeCorreoLogin.textContent = "El correo no puede estar vacío.";
-                mensajeCorreoLogin.className = "text-danger";
-            } else if (!regexEmail.test(email)) {
-                mensajeCorreoLogin.textContent = "Formato de correo inválido.";
-                mensajeCorreoLogin.className = "text-danger";
-            } else {
-                mensajeCorreoLogin.textContent = "Correo válido ✔️";
-                mensajeCorreoLogin.className = "text-success";
-            }
-        });
-
-        // Contraseña en vivo
-        loginPass.addEventListener("input", function () {
-            const pass = loginPass.value.trim();
-            if (pass === "") {
-                mensajePassLogin.textContent = "La contraseña no puede estar vacía.";
-                mensajePassLogin.className = "text-danger";
-            } else {
-                mensajePassLogin.textContent = "";
-            }
-        });
-
-        // Validación final al enviar
-        loginForm.addEventListener("submit", function (event) {
-            let mensajeError = "";
-            const email = loginEmail.value.trim();
-            const pass = loginPass.value.trim();
-
-            if (email === '') mensajeError += "<li>El correo no puede quedar vacío</li>";
-            else if (!regexEmail.test(email)) mensajeError += "<li>El correo debe ser válido</li>";
-            if (pass === '') mensajeError += "<li>La contraseña no puede quedar vacía</li>";
-
-            if (mensajeError !== "") {
-                document.getElementById('errores').innerHTML = "<ul>" + mensajeError + "</ul>";
-                event.preventDefault();
-            } else {
-                document.getElementById('errores').innerHTML = '';
-            }
-        });
-    }
-
-};
 
 document.addEventListener('DOMContentLoaded', () => {
   const serviceDetailModal = document.getElementById('serviceDetailModal');
