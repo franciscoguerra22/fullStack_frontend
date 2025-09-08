@@ -53,48 +53,52 @@
         <div class="row justify-content-center" style="margin-top:50px">
             <div class="col-md-4">
 
-                <form action="" method="post" id="formRegistro" class="formulario-fondo p-4 rounded shadow-lg">
+                <form id="formRegistro" class="formulario-fondo p-4 rounded shadow-lg">
+
                     <h3 style="margin-bottom: 25px; text-align: center;">Registro de usuario</h3>
 
                     <div class="mb-3">
-                        <label for="nom" class="form-label etiqueta">Nombre completo: </label>
+                        <label for="nombre" class="form-label etiqueta">Nombre completo: </label>
                         <input type="text" class="form-control" id="nombre" placeholder="Naomi Diaz">
                         <div id="errorNombre" class="invalid-feedback"></div>
                     </div>
 
                     <div class="mb-3">
                         <label for="correo" class="form-label etiqueta">email: </label>
-                        <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" email
+                        <input type="email" class="form-control" id="correo" placeholder="ejemplo@correo.com" email
                             required>
-                            
+
                         <div id="errorEmail" class="invalid-feedback"></div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="correo" class="form-label etiqueta">Confirmar email: </label>
-                        <input type="email" class="form-control" id="confirmaremail" placeholder="ejemplo@correo.com" email
-                            required>
+                        <label for="correoconfir" class="form-label etiqueta">Confirmar email: </label>
+                        <input type="email" class="form-control" id="correoconfir" placeholder="ejemplo@correo.com"
+                            email required>
                         <div id="errorEmail" class="invalid-feedback"></div>
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="contra" class="form-label etiqueta">Contraseña: </label>
-                        <input type="password" class="form-control" id="password" placeholder="Crear contraseña" required>
-                        <div class="form-text">La contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula, una
+                        <input type="password" class="form-control" id="contra" placeholder="Crear contraseña" required>
+                        <div class="form-text">La contraseña debe tener al menos 8 caracteres, incluyendo una letra
+                            mayúscula, una
                             minúscula y un número.
                         </div>
-                        <div id="errorPassword" class="invalid-feedback"></div>  
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="contra" class="form-label etiqueta">Confirmar contraseña: </label>
-                        <input type="password" class="form-control" id="confirmarpassword" placeholder="Crear contraseña" required>
                         <div id="errorPassword" class="invalid-feedback"></div>
                     </div>
 
-                    <div class="mb-3">  
-                        <label for="tel" class="form-label etiqueta">Teléfono: </label>
-                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="123-456-7890" required>
+                    <div class="mb-3">
+                        <label for="contraconfi" class="form-label etiqueta">Confirmar contraseña: </label>
+                        <input type="password" class="form-control" id="contraconfi" placeholder="Crear contraseña"
+                            required>
+                        <div id="errorPassword" class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label etiqueta">Teléfono: </label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="123-456-7890"
+                            required>
                         <div id="errorTelefono" class="invalid-feedback"></div>
                     </div>
 
@@ -110,17 +114,17 @@
                         <div id="errorComuna" class="invalid-feedback"></div>
                     </div>
 
-                    
-
-                    
 
 
-                    
 
 
-                    
 
-                    
+
+
+
+
+
+
 
                     <div class="form-check caja">
                         <input type="checkbox" class="form-check-input" id="acepta" value="si">
@@ -141,11 +145,25 @@
 
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/Servicios.js"></script>
         <script>
-            poblarRegiones('selRegion','selComuna');
+            poblarRegiones('selRegion', 'selComuna');
         </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                registroValidado("formRegistro");
+            });
+        </script>
+        <script>
+            document.getElementById("formRegistro").addEventListener("submit", function (e) {
+                e.preventDefault(); // evita recargar la página
+                // Aquí puedes añadir validaciones extra si quieres
+                alert("Usuario registrado correctamente ✅");
+                window.location.href = "paginaInicio.html"; // redirige al inicio
+            });
+        </script>
+
 </body>
 
 </html>
