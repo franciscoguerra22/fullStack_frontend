@@ -2,174 +2,86 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesion</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/Diseñocss.css">
-    <script src="js/Servicios.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/Diseñocss.css">
 </head>
 
 <body class="bg-dark text-white">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="paginaInicio.html">Volver</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menucollapse">
-                    <img src="img/barra-de-menus.png" alt="Menu" style="width: 30px; height: 30px;">
-                </button>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="paginaInicio.html">Volver</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menucollapse">
+          <img src="img/barra-de-menus.png" alt="Menu" style="width: 30px; height: 30px;">
+        </button>
 
-                <div class="collapse navbar-collapse" id="menucollapse">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="paginaInicio.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="IniciarSesion.html">Iniciar sesion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="RegistrarUsuario.html">Registrar usuario</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="carrito.html">
-                                <img src="img/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
-                                <label id="cart-count" class="badge rounded-pill bg-danger"
-                                    style="position: relative; top: -10px; left: -10px;">0</label>
-                            </a>
-                        </li>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="container">
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-4">
-
-                    <form id="loginForm" class="formulario-fondo p-4 rounded shadow-lg">
-                        <h3>Iniciar sesión</h3>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com">
-                            <small id="mensajeCorreo"></small>
-                        </div>
-                        <div class="form-group mt-3">
-                            <label for="pass" class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control" id="pass" placeholder="***********">
-                            <small id="mensajePass"></small>
-                        </div>
-
-                        <div id="errores" class="text-danger mt-3"></div>
-                        <div class="text-end mt-2">
-                            <a href="#" class="text-link">¿Olvidaste tu contraseña?</a>
-                            <div class="text-center mt-4">
-                                <input type="submit" value="iniciar sesion" class="btn btn-outline-primary"
-                                    style="margin-right: 10px;">
-                                <a href="paginaInicio.html" class="btn btn-outline-warning">Volver</a>
-                            </div>
-                    </form>
-                </div>
-            </div>
+        <div class="collapse navbar-collapse" id="menucollapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="paginaInicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="IniciarSesion.html">Iniciar sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="RegistrarUsuario.html">Registrar usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="carrito.html">
+                <img src="img/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
+                <label id="cart-count" class="badge rounded-pill bg-danger"
+                  style="position: relative; top: -10px; left: -10px;">0</label>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
 
+    <!-- Formulario de login -->
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+          <form id="loginForm" class="formulario-fondo p-4 rounded shadow-lg">
+            <h3 class="mb-4 text-center">Iniciar sesión</h3>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/carrito.js"></script>
-        <script src="js/Servicios.js"></script>
-        <script>
-            // Funciones de validación
-            function mailValido(email) {
-                const re = /^[^\s@]+@[^\s@]+\.(com|cl)$/;
-                return re.test(email);
-            }
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" required>
+            </div>
 
-            function passwordValida(password) {
-                const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-                return re.test(password);
-            }
+            <div class="mb-3">
+              <label for="pass" class="form-label">Contraseña:</label>
+              <input type="password" class="form-control" id="pass" placeholder="***********" required>
+            </div>
 
-            // Captura el formulario
-            document.getElementById("loginForm").addEventListener("submit", function (e) {
-                e.preventDefault();
+            <div class="text-end">
+              <a href="#" class="text-link">¿Olvidaste tu contraseña?</a>
+            </div>
 
-                const email = document.getElementById("email").value.trim();
-                const pass = document.getElementById("pass").value.trim();
+            <div class="text-center mt-4">
+              <input type="submit" value="Iniciar sesión" class="btn btn-outline-primary" style="margin-right: 10px;">
+              <a href="paginaInicio.html" class="btn btn-outline-warning">Volver</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                // Validación básica de formato
-                if (!mailValido(email)) {
-                    alert("⚠️ Ingresa un correo válido (.com o .cl)");
-                    return;
-                }
-                if (!passwordValida(pass)) {
-                    alert("⚠️ La contraseña debe tener al menos 8 caracteres, mayúscula, minúscula y número.");
-                    return;
-                }
-
-                // Recuperar usuarios registrados (simulación con localStorage)
-                let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-                // Buscar si existe el usuario
-                const usuario = usuarios.find(u => u.correo === email && u.contra === pass);
-
-                if (!usuario) {
-                    alert("❌ Usuario no registrado o contraseña incorrecta.");
-                } else {
-                    alert(`✅ Bienvenido ${usuario.nombre}, has iniciado sesión correctamente.`);
-                    // Redirigir si quieres:
-                    // window.location.href = "paginaInicio.html";
-                }
-            });
-        </script>
-        <script>
-            function mailValido(email) {
-                const re = /^[^\s@]+@[^\s@]+\.(com|cl)$/;
-                return re.test(email);
-            }
-            function passwordValida(password) {
-                const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-                return re.test(password);
-            }
-
-            document.getElementById("loginForm").addEventListener("submit", function (e) {
-                e.preventDefault();
-
-                const email = document.getElementById("email").value.trim();
-                const pass = document.getElementById("pass").value;
-
-                if (!mailValido(email)) { alert("⚠️ Correo inválido (.com o .cl)"); return; }
-                if (!passwordValida(pass)) { alert("⚠️ Contraseña débil"); return; }
-
-                const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-                // Buscamos por correo (o email) ignorando mayúsculas
-                const usuario = usuarios.find(u => ((u.correo || u.email || "").toLowerCase() === email.toLowerCase()));
-
-                if (!usuario) {
-                    alert("❌ Usuario no registrado.");
-                    return;
-                }
-
-                // Aceptamos 'contra' o 'password' por compatibilidad
-                const storedPass = (usuario.contra ?? usuario.password ?? "");
-                if (storedPass !== pass) {
-                    alert("❌ Contraseña incorrecta.");
-                    return;
-                }
-
-                // Guardar sesión "simple"
-                localStorage.setItem("usuarioActual", JSON.stringify({
-                    nombre: usuario.nombre,
-                    correo: usuario.correo || usuario.email,
-                    permiso: usuario.permiso ?? 1
-                }));
-
-                alert(`✅ Bienvenido, ${usuario.nombre}. Has iniciado sesión correctamente.`);
-                window.location.href = "paginaInicio.html";
-            });
-        </script>
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/Servicios.js"></script>
+  <script src="js/usuarios.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loginValidado("loginForm");
+    });
+  </script>
 </body>
 
 </html>

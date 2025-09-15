@@ -2,76 +2,113 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/Diseñocss.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/Diseñocss.css">
 </head>
 
 <body class="bg-dark text-white">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="paginaInicio.html">Volver</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menucollapse">
-                    <img src="img/barra-de-menus.png" alt="Menú" style="width: 30px; height: 30px;">
-                </button>
-                <div class="collapse navbar-collapse" id="menucollapse">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="paginaInicio.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="IniciarSesion.html">Iniciar sesión</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="RegistrarUsuario.html">Registrar usuario</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="carrito.html">
-                                <img src="img/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
-                                <label id="cart-count" class="badge rounded-pill bg-danger"
-                                    style="position: relative; top: -10px; left: -10px;">0</label>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+  <div class="container">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="paginaInicio.html">Volver</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menucollapse">
+          <img src="img/barra-de-menus.png" alt="Menú" style="width: 30px; height: 30px;">
+        </button>
+        <div class="collapse navbar-collapse" id="menucollapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="paginaInicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="IniciarSesion.html">Iniciar sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="RegistrarUsuario.html">Registrar usuario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="carrito.html">
+                <img src="img/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
+                <label id="cart-count" class="badge rounded-pill bg-danger"
+                  style="position: relative; top: -10px; left: -10px;">0</label>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        <main class="py-5">
-            <h1 class="text-center mb-5">Tu Carrito de Compras</h1>
-            <div class="card bg-dark border-secondary">
-                <div class="card-body">
-                    <ul id="cart-list" class="list-group list-group-flush">
-                        </ul>
-                </div>
-                <div class="card-footer bg-dark border-secondary text-end" style="color: aliceblue;">
-                    <h4 class="mb-0">Total: <span id="cart-total">$0</span></h4>
-                </div>
-            </div>
-            <div class="d-grid gap-2 mt-4">
-                <button id="checkout-button" class="btn btn-primary btn-lg">Pagar Ahora</button>
-            </div>
-        </main>
+    <!-- MAIN -->
+    <main class="py-5">
+      <h1 class="text-center mb-5">Tu Carrito de Compras</h1>
+      <div class="card bg-dark border-secondary">
+        <div class="card-body">
+          <!-- Lista dinámica del carrito -->
+          <ul id="cart-list" class="list-group list-group-flush"></ul>
+        </div>
+        <div class="card-footer bg-dark border-secondary text-end" style="color: aliceblue;">
+          <h4 class="mb-0">Total: <span id="cart-total">$0</span></h4>
+        </div>
+      </div>
+      <div class="d-grid gap-2 mt-4">
+        <button id="checkout-button" class="btn btn-primary btn-lg">Pagar Ahora</button>
+      </div>
+    </main>
 
-        <footer class="bg-dark py-3 mt-5 border-top border-secondary">
-            <div class="container d-flex justify-content-around">
-                <a class="nav-link" href="https://www.artstation.com/franciscoguerra" target="blank">
-                    <img src="img/artstation.png" alt="Galeria" style="width: 30px; height: 30px;">
-                </a>
-                <a class="nav-link" href="https://www.instagram.com/frvn_guerra_/" target="blank">
-                    <img src="img/logo_ig.png" alt="Ig" style="width: 30px; height: 30px;">
-                </a>
-            </div>
-        </footer>
+    <!-- FOOTER (solo uno) -->
+    <footer class="bg-dark py-3 mt-5 border-top border-secondary">
+      <div class="container d-flex justify-content-around">
+        <a class="nav-link" href="https://www.artstation.com/franciscoguerra" target="_blank">
+          <img src="img/artstation.png" alt="Galería" style="width: 30px; height: 30px;">
+        </a>
+        <a class="nav-link" href="https://www.instagram.com/frvn_guerra_/" target="_blank">
+          <img src="img/logo_ig.png" alt="Instagram" style="width: 30px; height: 30px;">
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/Servicios.js"></script>
+
+  <!-- Toast + Modal -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000">
+    <div id="cart-toast" class="toast text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="cart-toast-body">
+          <!-- Mensaje dinámico -->
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Cerrar"></button>
+      </div>
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/carrito.js"></script>
-    <script src="js/Servicios.js"></script>
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Confirmar acción</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+            aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body" id="confirmModalBody">
+          ¿Seguro que quieres eliminar este producto?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmModalBtn">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

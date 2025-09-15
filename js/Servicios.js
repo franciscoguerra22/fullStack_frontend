@@ -138,9 +138,10 @@ function generarTarjetasServicios() {
                         <h5 class="card-title">${servicio.title}</h5>
                         <p>${servicio.price}</p>
                         
-                        <button class="btn btn-primary btn-sm me-2" onclick='addItem(${JSON.stringify(servicio)})'>
-                            <i class="bi bi-cart-plus"></i> Agregar al Carrito
+                        <button class="btn btn-primary btn-sm me-2" onclick='addItem(${JSON.stringify(servicio)}); updateCartCount();'>
+                        <i class="bi bi-cart-plus"></i> Agregar al Carrito
                         </button>
+
                         
                         <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
                             data-bs-target="#serviceDetailModal"
@@ -205,7 +206,7 @@ function crearAdmin() {
     }                 
 }
 
-function registroValidado(formId) {
+/* function registroValidado(formId) {
   const form = document.getElementById(formId);
   if (!form) return;
 
@@ -261,7 +262,7 @@ function telefonoValido(telefono) {
     const re = /^\d{9,11}$/;
     return re.test(telefono);
 }
-
+ */
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -292,19 +293,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (btnAddFromModal) {
-    btnAddFromModal.addEventListener('click', () => {
-      if (servicioSeleccionado) {
-        addItem(servicioSeleccionado);
+  btnAddFromModal.addEventListener('click', () => {
+    if (servicioSeleccionado) {
+      addItem(servicioSeleccionado);
+      updateCartCount(); // ✅ refresca el contador en la navbar
 
-        
-        const modalInstance = bootstrap.Modal.getInstance(serviceDetailModal);
-        if (modalInstance) modalInstance.hide();
-      } else {
-        console.warn(' No hay servicio seleccionado para agregar.');
-      }
-    });
-  }
+      const modalInstance = bootstrap.Modal.getInstance(serviceDetailModal);
+      if (modalInstance) modalInstance.hide();
+    } else {
+      console.warn(' No hay servicio seleccionado para agregar.');
+    }
+  });
+}
+
 });
+
 
 
 

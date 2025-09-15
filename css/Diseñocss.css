@@ -25,3 +25,12 @@
     bottom: -40px;
     /* ajusta el valor para bajarlo más o menos */
 }
+
+.is-valid {
+  border: 2px solid #28a745 !important; /* Verde */
+  background-image: url('data:image/svg+xml;utf8,✅');
+}
+
+.is-invalid {
+  border: 2px solid #dc3545 !important; /* Rojo */
+}
